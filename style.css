@@ -1,0 +1,105 @@
+/* --- Сброс базовых стилей и переменные --- */
+:root {
+    --bg-color: #0b0f19;
+    --card-bg: #151b2c;
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --accent: #3b82f6; 
+    --accent-hover: #2563eb;
+    --gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background-color: var(--bg-color); color: var(--text-main); font-family: 'Inter', sans-serif; line-height: 1.6; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* --- Кнопки --- */
+.btn { display: inline-block; padding: 12px 24px; border-radius: 8px; font-weight: 600; text-decoration: none; cursor: pointer; transition: all 0.3s ease; border: none; }
+.btn-primary { background: var(--gradient); color: #fff; box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6); }
+.btn-outline { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+.btn-outline:hover { background: var(--accent); color: #fff; }
+.btn-sm { padding: 8px 16px; font-size: 14px; background-color: var(--accent); color: #fff; }
+.btn-sm:hover { background-color: var(--accent-hover); }
+
+/* --- Шапка --- */
+.header { background-color: rgba(11, 15, 25, 0.8); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+.header-container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+.logo { font-size: 24px; font-weight: 700; color: #fff; text-decoration: none; }
+.logo span { color: var(--accent); }
+.nav-link { color: var(--text-muted); text-decoration: none; margin-right: 30px; font-weight: 500; }
+.nav-link:hover { color: var(--accent); }
+
+/* --- Hero --- */
+.hero { padding: 100px 0; }
+.hero-container { display: flex; align-items: center; gap: 50px; }
+.hero-content { flex: 1; }
+.badge { background: rgba(59, 130, 246, 0.1); color: var(--accent); padding: 6px 12px; border-radius: 20px; font-size: 14px; font-weight: 600; display: inline-block; margin-bottom: 20px; }
+.hero h1 { font-size: 48px; margin-bottom: 20px; }
+.hero p { color: var(--text-muted); font-size: 18px; margin-bottom: 40px; }
+.hero-image { flex: 1; }
+.hero-image img { width: 100%; border-radius: 16px; }
+
+/* --- Каталог --- */
+.catalog { padding: 80px 0; background-color: rgba(255, 255, 255, 0.02); }
+.section-title { font-size: 32px; text-align: center; margin-bottom: 50px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+.card { background-color: var(--card-bg); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.03); }
+.card-img img { width: 100%; height: 220px; object-fit: cover; }
+.card-body { padding: 24px; }
+.card-category { font-size: 12px; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.card-title { font-size: 20px; margin: 10px 0; }
+.card-text { color: var(--text-muted); font-size: 15px; margin-bottom: 20px; height: 70px; overflow: hidden; }
+.card-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 15px; }
+.price { font-weight: 700; font-size: 18px; }
+.footer { padding: 40px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center; color: var(--text-muted); }
+
+/* --- МОДАЛЬНОЕ ОКНО КОРЗИНЫ --- */
+.cart-modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    justify-content: center; align-items: center;
+}
+
+.cart-content {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 30px; color: var(--text-muted);
+    cursor: pointer;
+}
+
+.close-modal:hover { color: #fff; }
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cart-total {
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: right;
+}
+
+.empty-message {
+    color: var(--text-muted);
+    text-align: center;
+    padding: 20px 0;
+}

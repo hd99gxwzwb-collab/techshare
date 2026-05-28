@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechShare — Аренда & Продажа ИКТ Оборудования</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">Tech<span>Share</span></a>
+            <nav class="nav">
+                <a href="#catalog" class="nav-link">Каталог</a>
+                <a href="#benefits" class="nav-link">Преимущества</a>
+            </nav>
+            <!-- Кнопка корзины со счетчиком -->
+            <button class="btn btn-outline" id="cartBtn">
+                Корзина (<span id="cartCount">0</span>)
+            </button>
+        </div>
+    </header>
+
+    <!-- Главный баннер -->
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <span class="badge">Модуль ИКТ проекта</span>
+                <h1>Технологии в аренду и для бизнеса</h1>
+                <p>Прокачай свои возможности без лишних затрат. Аренда и продажа топового ИТ-оборудования: от мощных станций до VR-систем в Казахстане.</p>
+                <div class="hero-actions">
+                    <a href="#catalog" class="btn btn-primary">Смотреть каталог</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- Качественное фото серверной стойки / ИКТ -->
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" alt="ИКТ Серверная">
+            </div>
+        </div>
+    </section>
+
+    <!-- Каталог товаров -->
+    <section id="catalog" class="catalog">
+        <div class="container">
+            <h2 class="section-title">Популярные ИКТ решения</h2>
+            <div class="grid">
+                
+                <!-- Карточка 1 -->
+                <div class="card" data-id="1" data-name="Ноутбук PRO для ИТ-задач" data-price="12500">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=350&q=80" alt="Ноутбук">
+                    </div>
+                    <div class="card-body">
+                        <span class="card-category">Аренда</span>
+                        <h3 class="card-title">Ноутбук PRO для ИТ-задач</h3>
+                        <p class="card-text">Core i9, 32GB RAM, RTX 4080. Идеально для рендеринга, кодинга и работы с ИИ.</p>
+                        <div class="card-footer">
+                            <span class="price">12 500 ₸/сут</span>
+                            <button class="btn btn-sm add-to-cart">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 2 -->
+                <div class="card" data-id="2" data-name="VR-шлем HTC Vive Cosmos" data-price="19000">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=350&q=80" alt="VR очки">
+                    </div>
+                    <div class="card-body">
+                        <span class="card-category">Аренда</span>
+                        <h3 class="card-title">VR-шлем HTC Vive Cosmos</h3>
+                        <p class="card-text">Погружение в виртуальную реальность, тестирование приложений и проведение ИКТ-презентаций.</p>
+                        <div class="card-footer">
+                            <span class="price">19 000 ₸/сут</span>
+                            <button class="btn btn-sm add-to-cart">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 3 -->
+                <div class="card" data-id="3" data-name="Сетевое хранилище (NAS)" data-price="245000">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=350&q=80" alt="Сервер">
+                    </div>
+                    <div class="card-body">
+                        <span class="card-category">Продажа</span>
+                        <h3 class="card-title">Сетевое хранилище (NAS)</h3>
+                        <p class="card-text">Обеспечьте надежное локальное хранение данных вашей ИТ-команды с быстрыми SSD накопителями.</p>
+                        <div class="card-footer">
+                            <span class="price">245 000 ₸</span>
+                            <button class="btn btn-sm add-to-cart">Купить</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Окно Корзины (Модальное окно) -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <span class="close-modal" id="closeCart">&times;</span>
+            <h2>Ваша корзина</h2>
+            <div id="cartItemsList">
+                <!-- Сюда товары будут добавляться через JS -->
+                <p class="empty-message">Корзина пока пуста</p>
+            </div>
+            <div class="cart-total">
+                <strong>Итого: <span id="cartTotalPrice">0</span> ₸</strong>
+            </div>
+            <button class="btn btn-primary" style="width: 100%; margin-top: 15px;" onclick="alert('Заказ оформлен!')">Оформить заказ</button>
+        </div>
+    </div>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <p>&copy; 2026 TechShare. Все права защищены. Разработано в рамках модуля ИКТ.</p>
+        </div>
+    </footer>
+
+    <!-- Подключаем логику работы сайта -->
+    <script src="script.js"></script>
+</body>
+</html>
